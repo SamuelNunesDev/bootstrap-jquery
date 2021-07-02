@@ -1,3 +1,36 @@
+.logo {
+    margin: 0px 30px;
+}
+body {
+    padding-top: 70px;
+}
 #search {
-    width: 60%;
+    width: 67%;
+}
+.sidebar {
+    position: fixed;
+    bottom: 0;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    padding: 70px 15px 0px 15px;
+}
+.sidebar .nav-link {
+    color: #333;
+    font-weight: 500;
+}
+.sidebar .nav-link:hover {
+    text-decoration: underline;
+}
+.sidebar .active {
+    color: #007bff;
+}
+main {
+    margin-left: auto;
+}
+.sidebar-heading {
+
+    text-transform: uppercase;
+    margin-top: 25px;
+    font-size: 0.9em;
 }
