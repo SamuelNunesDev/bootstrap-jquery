@@ -1,9 +1,9 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="pt-br">
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link href="../node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="style.css">
     <title>Painel Dashboard</title>
   </head>
@@ -52,9 +52,28 @@
             </li>
         </ul>
     </nav>   
-    <main role="main" class="col-10 main">
-        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sunt doloribus distinctio dicta aut libero. Odio quia eos et placeat nesciunt harum porro dolor eius! Aperiam, earum? Dignissimos repudiandae neque quaerat.</p>
-    </main>
+    <main role="main" class="col-10 main px-4">
+        <div class="d-flex justify-content-between align-items-center mt-1">
+            <h1 class="h2">Dashboard</h1>
+            <div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
+                <div class="btn-group mr-1" role="group" aria-label="First group">
+                  <button type="button" class="btn btn-sm btn-outline-secondary">Share</button>
+                  <button type="button" class="btn btn-sm btn-outline-secondary">Export</button>
+                </div>
+                <div class="dropdown">
+                    <button class="btn btn-outline-secondary dropdown-toggle mx-1" type="button" id="dropdownh1" data-bs-toggle="dropdown" aria-expanded="false">
+                      Dropdown button
+                    </button>
+                    <ul class="dropdown-menu" aria-labelledby="dropdownh1">
+                      <li><a class="dropdown-item" href="#">Last two weeks</a></li>
+                      <li><a class="dropdown-item" href="#">Last mounth</a></li>
+                      <li><a class="dropdown-item" href="#">Last tree mounths</a></li>
+                    </ul>
+                  </div>
+            </div>
+        </div>
+        <hr>
+    </main> 
     <script src="../node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
   </body>
 </html>
