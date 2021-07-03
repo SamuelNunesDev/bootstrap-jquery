@@ -34,3 +34,9 @@ main {
     margin-top: 25px;
     font-size: 0.9em;
 }
+.btn-link {
+    text-decoration: none;
+}
+.btn-link:hover {
+    text-decoration: underline;
+}
