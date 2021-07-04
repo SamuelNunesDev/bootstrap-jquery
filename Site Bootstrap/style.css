@@ -36,7 +36,6 @@ section h2 {
 }
 .jumbotron p {
     padding: 1rem;
-    border-bottom: 2px solid white;
     background-color: rgba(0, 0, 0, .6);
     font-size: 1rem;
     display: inline-block;
@@ -69,6 +68,9 @@ section h2 {
     padding: .75rem 1.25rem;
     background-color: white;
     border-radius: 4px;
+}
+.card-img-top {
+    height: 250px;
 }
 .cards-container .card {
     border-radius: 0;
