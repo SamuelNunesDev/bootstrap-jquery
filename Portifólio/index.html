@@ -5,22 +5,23 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="style.css">
     <script src="../node_modules/jquery/dist/jquery.slim.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
     <title>Portifólio</title>
 </head>
 <body>
     <header>
-        <nav class="navbar navbar-expand-lg navbar-dark bg-dark px-4 fixed-top">
+        <nav class="navbar navbar-expand-lg navbar-dark px-4 fixed-top" id="sideNav">
             <a class="navbar-brand" href="#">Samuel Nunes de Souza</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
               <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
               <div class="navbar-nav navbar-right">
-                <a class="nav-item nav-link active" href="#inicio">Inicio</a>
+                <a class="nav-item nav-link" href="#">Inicio</a>
                 <a class="nav-item nav-link" href="#trabalhos-recentes">Trabalhos Recentes</a>
-                <a class="nav-item nav-link" href="#">Entre em Contato</a>
+                <a class="nav-item nav-link" href="#entre-em-contato">Entre em Contato</a>
               </div>
             </div>
           </nav>
@@ -36,7 +37,7 @@
             <article class="row px-5">
                 <div class="card col-12 col-sm-6 m-3" style="width: 18rem;">
                     <a href="#">
-                        <img class="card-img-top" src="..." alt="Card image cap">
+                        <img class="card-img-top" src="images/fulls/01.jpg" alt="Card image cap">
                     </a>
                     <div class="card-body">
                         <p class="card-text">Lorem, ipsum dolor sit amet consectetur adipisicing elit.!</p>
@@ -45,7 +46,7 @@
                 </div>
                 <div class="card col-12 col-sm-6 m-3" style="width: 18rem;">
                     <a href="#">
-                        <img class="card-img-top" src="..." alt="Card image cap">
+                        <img class="card-img-top" src="images/fulls/02.jpg" alt="Card image cap">
                     </a>
                     <div class="card-body">
                         <p class="card-text">Lorem, ipsum dolor sit amet consectetur adipisicing elit.!</p>
@@ -56,7 +57,7 @@
             <article class="row px-5">
                 <div class="card col-12 col-sm-6 m-3" style="width: 18rem;">
                     <a href="#">
-                        <img class="card-img-top" src="..." alt="Card image cap">
+                        <img class="card-img-top" src="images/fulls/03.jpg" alt="Card image cap">
                     </a>
                     <div class="card-body">
                         <p class="card-text">Lorem, ipsum dolor sit amet consectetur adipisicing elit.!</p>
@@ -65,7 +66,7 @@
                 </div>
                 <div class="card col-12 col-sm-6 m-3" style="width: 18rem;">
                     <a href="#">
-                        <img class="card-img-top" src="..." alt="Card image cap">
+                        <img class="card-img-top" src="images/fulls/04.jpg" alt="Card image cap">
                     </a>
                     <div class="card-body">
                         <p class="card-text">Lorem, ipsum dolor sit amet consectetur adipisicing elit.!</p>
@@ -73,10 +74,10 @@
                     </div>
                 </div>
                 </article>
-                <article class="row px-5">
+                <article class="row px-5 border-bottom pb-3">
                 <div class="card col-12 col-sm-6 m-3" style="width: 18rem;">
                     <a href="#">
-                        <img class="card-img-top" src="..." alt="Card image cap">
+                        <img class="card-img-top" src="images/fulls/05.jpg" alt="Card image cap">
                     </a>
                     <div class="card-body">
                         <p class="card-text">Lorem, ipsum dolor sit amet consectetur adipisicing elit.!</p>
@@ -85,7 +86,7 @@
                 </div>
                 <div class="card col-12 col-sm-6 m-3" style="width: 18rem;">
                     <a href="#">
-                        <img class="card-img-top" src="..." alt="Card image cap">
+                        <img class="card-img-top" src="images/fulls/06.jpg" alt="Card image cap">
                     </a>
                     <div class="card-body">
                         <p class="card-text">Lorem, ipsum dolor sit amet consectetur adipisicing elit.!</p>
@@ -94,6 +95,56 @@
                 </div>
             </article>
         </section>
+        <section class="section" id="entre-em-contato">
+            <h2 class="my-4">Entre em Contato</h2>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam unde dolore iusto modi. Dolore sapiente totam quae eos ipsam sunt, doloribus eligendi iure adipisci ullam neque perferendis maiores animi voluptatibus!</p>
+            <article class="row">
+                    <div class="col-12 col-md-9">
+                        <form>
+                            <div class="form-row row">
+                              <div class="col-12 col-sm-6 my-2">
+                                <label for="nome">Nome</label>
+                                <input type="text" class="form-control" id="nome" placeholder="Nome completo">
+                              </div>
+                              <div class="col-12 col-sm-6 my-2">
+                                <label for="email">E-mail</label>
+                                <input type="text" class="form-control" id="email" placeholder="E-mail">
+                              </div>
+                              <div class="col-12 my-2">
+                                <label for="mensagem">Mensagem</label>
+                                <textarea type="text" class="form-control" id="mensagem" placeholder="Mensagem" rows="5"></textarea>
+                                <input class="btn btn-outline-primary mt-3" type="submit" value="Enviar Mensagem">
+                              </div>
+                            </div>
+                        </form>
+                    </div>
+                <aside class="col-12 col-md-3 px-md-0 mt-3 mt-md-4">
+                    <address>
+                        <p><span>Endereço: </span>1234 Somewhere Rd. Nashville, TN 00000 United States</p>
+                        <p><span>Telefone: </span>4002-8922</p>
+                        <p><span>E-mail: </span>sammoc11@hotmail.com</p>
+                    </address>
+                </aside>
+            </article>
+        </section>
+        <footer>
+            <ul class="nav">
+                <li class="navitem">
+                    <a href="" class="nav-link">
+
+                    </a>
+                </li>
+                <li class="navitem">
+                    <a href="" class="nav-link">
+
+                    </a>
+                </li>
+            </ul>
+            <ul>
+                <li>&copy; Untitled</li>
+                <li>Design: <a href="">HTML5Up</a></li>
+            </ul>
+        </footer>
     </main>
 </body>
 </html>
