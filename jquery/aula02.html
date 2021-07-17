@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../bootstrap/node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script src="jquery-3.6.0.min.js"></script>
+    <title>Jquery</title>
+</head>
+<body>
+    <h1 id="h1">Aula 02 - Testando o Jquery</h1>
+    <input type="text">
+    <button class="btn btn-outline-primary d-block">mostrar!</button>
+    <script>
+        $('#h1').hide()  // Método hide() para esconder um elemento da tela, hide(ms) para fazer uma animação do elemento sendo ocultado em
+                         // milisegundos
+        $('#h1').text('Alterando texto 1 com jquery').show(500) // Método show() para mostrar um elemento da tela, show(ms) para fazer uma 
+                                                                // animação do elemento sendo ocultado em milisegundos
+        $('input').val('inserindo valores').hide(1500) // Método val() captura o atributo value do elemento, val(valor) para atribuir um novo 
+                                                        // valor ao atributo value do elemento
+        let func = $('input').val()  // Também é possível armazenar o estado do elemento através dos atributos instanciando variáveis
+        $('button').click(function() {
+            $('body').html($('body').html() + '<div class="container shadow"><button class="btn btn-success">Ok!</button><button class="btn btn-secondary">N/OK!</button></div>') // Método html() retorna o texto html incluso do elemento, html(text) para atribuir um novo
+                                                // texto html ao elemento
+            $('input').val(func).show(1500)  // Criando um elemento "herdando" o atributo de outro elemento
+
+        })
+
+    </script>
+</body>
+</html>
