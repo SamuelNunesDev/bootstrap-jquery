@@ -61,6 +61,25 @@ body {
     border-top: none;
     border-right: none;
 }
+.title {
+    background-color: #63c6ae;
+    text-transform: uppercase;
+    color: #fff;
+    text-indent: 9rem;
+}
+.second-article {
+    padding: 40px 10rem 25px 10rem;
+    color: #fff;
+    background-color: #63c6ae;
+    border-bottom: 15px solid #4fa08c;
+}
+.rodape {
+    color: gray;
+}
+.footer-links {
+    color: gray;
+    text-decoration: none;
+}
 
 @media screen and (min-width: 992px){
     .navbar {
