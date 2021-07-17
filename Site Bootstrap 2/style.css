@@ -68,7 +68,7 @@ body {
     text-indent: 9rem;
 }
 .second-article {
-    padding: 40px 10rem 25px 10rem;
+    padding: 40px 10% 25px 10%;
     color: #fff;
     background-color: #63c6ae;
     border-bottom: 15px solid #4fa08c;
