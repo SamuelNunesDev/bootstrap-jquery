@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../bootstrap/node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script src="jquery-3.6.0.min.js"></script>
+    <title>Jquery</title>
+</head>
+<body>
+    <h1 id="h1">Aula 03 - Testando o Jquery</h1>
+    <button>TEste</button>
+    <ul>
+        <li>item 1<span>primeiro seletor</span></li>
+        <li>item 2</li>
+        <li>item 3</li>
+        <ul>
+            <li>item 3.1 <p>teste apenas</p></li>
+            <li class="ultimo">item 3.2</li>
+        </ul>
+    </ul>
+    <script>
+        $(function() {  //  document.ready() garante que o DOM foi carregado, adcionando script no fim do html pra manter a performance
+            $('#h1').css('font', '5rem serif').css('color', 'gray')  // Método css() para alterar o estilo do elemento
+            $('button').addClass('btn btn-success') // Método addClass() adiciona uma classe ao elemento
+            $('li:not(.ultimo)').css('color', 'blue') // Filtro seletor:not(select) aplica as alterações em todos seletores com exceção do 
+                                                        // select passado obs: :last para o ultimo
+            $('li:first').css('color', 'red') // Filtro seletor:first aplica as alterações somente no primeiro seletor passado
+            $('li:first-child').css('color', 'green')  //  Filtro seletor:first-child aplica as alterações somente no primeiro filho de cada seletor
+            $('li:gt(2)').css({  // Filtro seletor:gt(index) Aplica as alterações somente nos elementos que tiverem o indice maior que o index.
+                                // Exemplo acima tenho 5 elementos li, considerando os indexes 0, 1, 2, 3, 4 as modificações serão aplicadas
+                                // somente nos elementos 3 e 4. De forma similar o filtro seletor:lt iria modificar apenas os elementos 0 e 1
+                'color': 'pink',  // Passando multiplos atributos a serem "settados" com a sintaxe {'atributo':'valor'}
+                'font-family': 'serif',
+                'background-color': 'black'
+            })
+        })
+    </script>
+</body>
+</html>
