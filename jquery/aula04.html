@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../bootstrap/node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script src="jquery-3.6.0.min.js"></script>
+    <title>Jquery</title>
+</head>
+<body>
+    <h1 id="h1">Aula 03 - Testando o Jquery</h1>
+    <button>TEste</button>
+    <ul>
+        <h1>filho unico!</h1>
+        <li>item 1<span>primeiro seletor</span></li>
+        <li>item 2</li>
+        <li>item 3</li>
+        <li hidden>item 4</li>
+        <ul>
+            <li>item 3.1 <p><span>teste apenas</span></p></li>
+            <li class="ultimo">item 3.2</li>
+        </ul>
+    </ul>
+    <p hidden>alo</p>
+    <script>
+        $(function() {
+            $('li:odd').css('background-color', '#ccc') // Filtro seletor:odd aplica alterações apenas nos seletores com index ímpar. De forma 
+                                                        // similar o seletor:even aplica alterações apenas nos seletores com índex par.
+            $('li:eq(0)').css('color', 'red') // Filtro seletor:eq(index) aplica alterações apenas no elemento com o index especificado
+            $('li:contains(seletor)').css('color', 'orange') // Filtro seletor:contains(valor) aplica alterações no elemento que contem o
+                                                            // valor passado
+            $('li:has(span)').css('background-color', 'orange')  // Filtro seletor:has(tag) altera todo o elemento que contém a tag html passada
+            $('p:empty').text('paragrafo vazio')  // Filtro seletor:empty altera o elemento caso esteja sem conteúdo
+            $('p:parent').css('color', 'green')  // Filtro seletor:parent altera todo elemento que seja pai de algum outro, inclusive texto
+            $('li:hidden').text('eu estava oculto!') // Filtro seletor:hidden altera os elementos que estiverem ocultos. De forma similar 
+                                                    // o :visible modifica todos os elementos que estiverem visíveis
+            $('h1:only-child').text('filho unico!') // Filtro seletor:only-child altera os elementos que forem filho unico.
+            
+        })
+    </script>
+</body>
+</html>
