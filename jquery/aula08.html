@@ -1,0 +1,194 @@
+<!DOCTYPE HTML>
+<html lang="pt-br">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
+	<!--    <script src="js/jquery-3.3.1.js"></script>-->
+	<script
+	src="https://code.jquery.com/jquery-3.3.1.js"
+	integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+	crossorigin="anonymous"></script>
+	<style>
+	body{
+		text-align: center;
+	}
+	#div1{
+		display: inline-block;
+		width: 200px;
+		height: 50px;
+		background-color: yellow;
+		border: 5px solid black;
+		cursor: pointer;
+		margin-top: 50px;
+	}
+	form{
+		width: 50%;
+		margin-left: 25%;
+		margin-top: 50px;
+	}
+	label{
+		margin-top: 25px;
+	}
+
+	input + label {
+		margin-top: 0;
+	}
+</style>
+
+
+</head>
+<body>
+	<div id="div1">Evento do mouse</div>
+	<form>
+
+		<div class="form-group">
+			<label for="text">Escreva algo</label>
+			<input type="text" class="form-control" id="text">
+			<div id="textoDigitado">Aguardando texto</div>
+		</div>
+
+
+		<div class="form-group">
+			<label for="select">escolha um ou mais</label>
+			<select multiple class="form-control" id="select">
+				<option value="1">numero 1</option>
+				<option value="2">numero 2</option>
+				<option value="3">numero 3</option>
+				<option value="4">numero 4</option>
+				<option value="5">numero 5</option>
+			</select>
+			<div id="selecionados"></div>
+		</div>
+
+
+		<div class="form-check form-check-inline">
+			<input class="form-check-input" type="checkbox" name="checkboxes" id="chk1" value="option1">
+			<label class="form-check-label" for="chk1">1</label>
+		</div>
+		<div class="form-check form-check-inline">
+			<input class="form-check-input" type="checkbox" name="checkboxes" id="chk2" value="option2">
+			<label class="form-check-label" for="chk2">2</label>
+		</div>
+		<div class="form-check form-check-inline">
+			<input class="form-check-input" type="checkbox" name="checkboxes" id="chk3" value="option3">
+			<label class="form-check-label" for="chk3">3</label>
+		</div>
+		<div id="checados"></div>
+
+
+		<div class="form-check form-check-inline">
+			<input class="form-check-input" type="radio" name="radio" id="rd1" value="option1">
+			<label class="form-check-label" for="rd1">1</label>
+		</div>
+		<div class="form-check form-check-inline">
+			<input class="form-check-input" type="radio" name="radio" id="rd2" value="option2">
+			<label class="form-check-label" for="rd2">2</label>
+		</div>
+		<div class="form-check form-check-inline">
+			<input class="form-check-input" type="radio" name="radio" id="rd3" value="option3">
+			<label class="form-check-label" for="rd3">3</label>
+		</div>
+		<div id="checado"></div>
+
+
+		<div class="form-check">
+
+			<label class="form-check-label"><input type="checkbox" class="form-check-input" id="aceito" value="aceito">Aceito o contrato</label>
+		</div>
+		<button type="submit" class="btn btn-primary" disabled="disabled">Manda ae</button>
+	</form>
+
+	
+    <script>
+        
+        $('#div1').on('click mousedown mouseup', function(e){
+            console.log(e.type)
+        } )
+        
+        $('#text').on('keyup keydown keypress', function(e){
+            console.log(e.type, ' - ', this.value, ' - ', e.target.value)
+        })
+        
+        $('#text').on('keyup', function(e){
+            $('#textoDigitado').text($(this).val())
+        })
+        
+        $('#select').on('change', function(e){
+            //console.log(e.target)            
+            //console.log(e.target.value)
+            
+            //console.log($('#select :selected') )
+            console.log($(this).find(':selected') )
+            
+            let selecionados = $(this).find(':selected');
+            let str = '';
+            selecionados.each(function(i, el){
+                str += (el.textContent + ' - valor: ' + el.value + '<br>')
+            })
+            
+            $('#selecionados').html(str)
+            
+
+        })
+        
+        $('#aceito').on('change', function(e){
+            console.log(this)
+            console.log(this.value)
+            console.log(this.checked)
+            console.log($(this).is(':checked'))
+            
+            let selecionado = $(this).is(':checked');
+            $('button').attr('disabled', !selecionado)
+        })
+        
+        $('[name="checkboxes"]').on('change', function(e){
+            
+            
+            console.log( $('[name="checkboxes"]:checked') )
+            let selecionados = $('[name="checkboxes"]:checked')
+            let str = '';
+            selecionados.each(function(i, el){
+                //str += ( $(el).next().text() + ' - valor: ' + el.value + '<br>')
+                let _id = $(el).attr('id')
+                str += ( $('label[for="'+ _id +'"]').text() + ' - valor: ' + el.value + '<br>')
+                
+            })
+            $('#checados').html(str)
+        })
+        
+        $('[name="radio"]').on('change', function(e){
+            let _id = $(this).attr('id')
+            $('#checado').text( $('label[for="'+ _id +'"]').text() + ' -  valor: ' + this.value )
+        })
+        
+        function enviarDados(e){
+            e.preventDefault();
+            alert('os dados serao enviados')
+        }
+        
+        $('form').on('submit', enviarDados);
+        
+        $(document).one('dblclick', function(e){
+            alert('duplo clique no document')
+        })
+        
+        const mostraN = e => {
+            n++;
+            
+            alert(`mostrou esse alert ${n} ${( n > 1 ) ? 'vezes' : 'vez'}`)
+            if(n >= 3){
+                $(document).off('click', mostraN)
+            }
+            
+            
+        }
+        
+        let n = 0;
+        $(document).on('click', mostraN)
+        
+    </script>
+	</body>
+	</html>
