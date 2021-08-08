@@ -1,0 +1,99 @@
+<!DOCTYPE HTML>
+<html lang="pt-br">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
+	<!--    <script src="js/jquery-3.3.1.js"></script>-->
+	<script
+	src="https://code.jquery.com/jquery-3.3.1.js"
+	integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+	crossorigin="anonymous"></script>
+	<style>
+	body{
+		text-align: center;
+	}
+	#div1, #div2{
+		display: inline-block;
+		width: 100px;
+		background-color: yellow;
+		border: 5px solid black;
+		cursor: pointer;
+		
+	}
+	#div1{
+		margin-top: 50px;
+	}
+
+	#div2b{
+		background-color: orange;
+		margin: 15px;
+		height: 50px;
+	}
+	#focou{
+		display: none;
+	}
+	[type="text"]{
+		width: 50%;
+		margin-left: 25%;
+		margin-top: 50px;
+	}
+	
+</style>
+
+
+</head>
+<body>
+	<div id="div1">Evento hover</div>
+	<br>
+	<div class="form-group" id="parent-focus">
+		<label for="text">focus/blur</label>
+		<input type="text" class="form-control" id="text">
+		<div id="focou">Deu foco</div>
+	</div>
+
+	<hr>
+
+	<p>Eventos mouse</p>
+	<div id="div2">
+		<div id="div2b">
+			
+		</div>
+	</div>
+	<br>
+	<button> trigger / triggerHandler </button>
+
+	<script>
+		
+        let n = 0;
+        $('#div1').hover(function(){
+            $(this).text(++n)
+        }, function(){
+            $(this).text(--n)
+        })
+        
+        $('#parent-focus')
+            .on('focusin', function(){
+                $('#focou').fadeIn()
+            })
+            .on('focusout', function(){
+                $('#focou').fadeOut()
+            })
+        
+        let d = 0;
+		$('#div2').on('mouseover mouseout', function(){
+            $('#div2b').text(++d)
+        })
+        
+        $('button').on('click', function(){
+            //$('#div2b').triggerHandler('mouseover')
+            $('#text').triggerHandler('focus')
+        })
+        
+        $('#text').on('focus', function(){console.log('focus')})
+
+	</script>
+	</body>
+	</html>
