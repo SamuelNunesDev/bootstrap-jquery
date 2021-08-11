@@ -1,0 +1,11 @@
+body {
+    background-color: #ddd;
+}
+.btn-danger {
+    position: absolute;
+    right: 20px;
+    top: 5px;
+}
+.riscado {
+    text-decoration: line-through;
+}

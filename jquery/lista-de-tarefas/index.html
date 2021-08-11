@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../bootstrap/node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="style.css">
+    <title>Lista de Tarefas</title>
+</head>
+<body>
+    <header class="text-center mt-4">
+        <h1>Lista de Tarefas</h1>
+    </header>
+    <main class="row my-4 justify-content-center">
+        <section class="col-8 shadow">
+            <div class="input-group mb-3">
+                <input type="text" class="form-control" placeholder="Adicione uma tarefa..." aria-label="Adicione uma tarefa..." aria-describedby="basic-addon2">
+                <div class="input-group-append">
+                  <button class="btn btn-outline-secondary" type="button">Button</button>
+                </div>
+            </div>
+        </section>
+        <section class="col-5 mt-5">
+            <div class="list-group">
+                <a href="#" class="list-group-item list-group-item-action">
+                    <input type="checkbox" class="checkbox"> 
+                    <label for="">Cras justo odio</label>
+                    <button class="btn btn-danger btn-sm">Apagar</button>
+                </a>
+                <a href="#" class="list-group-item list-group-item-action">
+                    <input type="checkbox" class="checkbox"> 
+                    <label for="">Dapibus ac facilisis in</label>
+                    <button class="btn btn-danger btn-sm">Apagar</button>
+                </a>
+                <a href="#" class="list-group-item list-group-item-action">
+                    <input type="checkbox" class="checkbox"> 
+                    <label for="">Morbi leo risus</label>
+                    <button class="btn btn-danger btn-sm">Apagar</button>
+                </a>
+                <a href="#" class="list-group-item list-group-item-action">
+                    <input type="checkbox" class="checkbox"> 
+                    <label for="">Porta ac consectetur ac</label>
+                    <button class="btn btn-danger btn-sm">Apagar</button>
+                </a>
+                <a href="#" class="list-group-item list-group-item-action ">
+                    <input type="checkbox" class="checkbox"> 
+                    <label for="">Vestibulum at eros</label>
+                    <button class="btn btn-danger btn-sm">Apagar</button>
+                </a>
+              </div>
+        </section>
+    </main>
+    <script src="../jquery-3.6.0.min.js"></script>
+    <script src="../../bootstrap/node_modules/bootstrap/dist/js/bootstrap.bundle.js"></script>   
+    <script>
+        $(function() {
+            $('.checkbox').on('click', function() {
+                let ativo =  $(this).parent().children('label')
+                if (ativo.checked)
+                {
+                    ativo.addClass('riscado')
+                }
+                else
+                {
+                    ativo.removeClass('riscado')
+                }
+            })
+        })
+    </script> 
+</body>
+</html>
