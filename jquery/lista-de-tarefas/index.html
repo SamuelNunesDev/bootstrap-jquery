@@ -15,14 +15,19 @@
     <main class="row my-4 justify-content-center">
         <section class="col-8 shadow">
             <div class="input-group mb-3">
-                <input type="text" class="form-control" placeholder="Adicione uma tarefa..." aria-label="Adicione uma tarefa..." aria-describedby="basic-addon2">
+                <input type="text" class="form-control" id="nova-tarefa" placeholder="Adicione uma tarefa..." aria-label="Adicione uma tarefa..." aria-describedby="basic-addon2">
                 <div class="input-group-append">
-                  <button class="btn btn-outline-secondary" type="button">Button</button>
+                  <button class="btn btn-outline-secondary" id="btn-add" type="button">Button</button>
                 </div>
             </div>
         </section>
-        <section class="col-5 mt-5">
+        <section class="col-7 mt-5">
             <div class="list-group">
+                <a href="#" class="list-group-item list-group-item-action" hidden>
+                    <input type="checkbox" class="checkbox"> 
+                    <label for="">teste</label>
+                    <button class="btn btn-danger btn-sm">Apagar</button>
+                </a>
                 <a href="#" class="list-group-item list-group-item-action">
                     <input type="checkbox" class="checkbox"> 
                     <label for="">Cras justo odio</label>
@@ -55,16 +60,38 @@
     <script src="../../bootstrap/node_modules/bootstrap/dist/js/bootstrap.bundle.js"></script>   
     <script>
         $(function() {
-            $('.checkbox').on('click', function() {
-                let ativo =  $(this).parent().children('label')
-                if (ativo.checked)
+            let input_add = $('#nova-tarefa')
+
+            $('.list-group-item').on('click', function(){
+                let checkado = this.children[0].checked
+                if(!(checkado))
                 {
-                    ativo.addClass('riscado')
+                    $(this).children('label').css('text-decoration', 'line-through')
+                    $(this).children('.checkbox').attr('checked', true)
                 }
                 else
                 {
-                    ativo.removeClass('riscado')
+                    $(this).children('label').css('text-decoration', 'none')
+                    $(this).children('.checkbox').attr('checked', false)
                 }
+            })
+
+            $('#btn-add').on('click', function() {
+                $('.list-group-item:first')
+                .clone(true)
+                .removeAttr('hidden')
+                .appendTo('.list-group')
+                .children('label')
+                .text(input_add.val())
+                input_add.focus()
+            })
+            
+            $('.btn-danger').on('click', function() {
+                $(this).parent().remove()
+                input_add.focus()
+            })
+            input_add.on('change', function(e) {
+                console.log(this.value)
             })
         })
     </script> 
