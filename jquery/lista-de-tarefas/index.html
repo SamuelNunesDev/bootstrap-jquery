@@ -62,8 +62,14 @@
         $(function() {
             let input_add = $('#nova-tarefa')
             
-            $('.list-group-item').on('click', function(e) {
+            $('.checkbox').on('click', function(e) {
+                e.stopPropagation()
                 $(e.target).siblings('label').toggleClass('checkado')
+            })
+            $('.list-group-item').on('click', function() {
+                let selecionado = this.children[0].checked
+                $(this).children('input').attr('checked', !selecionado)
+                $(this).children('label').toggleClass('checkado')
             })
 
             $('#btn-add').on('click', adicionar)

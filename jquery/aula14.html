@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
+    <style>
+    html, body{
+        height: 100%;
+    }
+    body{
+    	background: #e0dbdb;
+    }
+
+    
+    .parent{
+        width: 300px;
+        height: 230px;
+        border: 5px solid black;
+        background: rgba(0,0,0,.2);
+        margin: 25px;
+    }
+
+    .child{
+        width: 90%;
+        margin: 10px auto;
+        border: 5px solid green;
+        background: rgba(0,0,0,.2);
+    }
+
+    #size{
+        width: calc(100% - 390px);
+        height: calc(100vh - 320px);
+        position: fixed;
+        bottom: 10px;
+        right: 10px;
+        background-color: white;
+        padding: 20px;
+        margin: 30px;
+        border: 10px solid rgba(0,0,0,.3);
+
+    }
+
+    #btnVoltar{
+        position: fixed;
+        top: 50%; right: 0;
+        display: none;
+    }
+    
+    </style>
+
+    
+</head>
+<body>
+    
+    <div class="parent">
+        div pai 
+        <div class="pos"></div>
+        <div class="child">div filha
+            <div class="pos"></div>
+        </div>
+    </div>
+
+    <div class="parent">
+        div pai 
+        <div class="pos"></div>
+        <div class="child">div filha
+            <div class="pos"></div>
+        </div>
+    </div>
+
+    <div class="parent">
+        div pai 
+        <div class="pos"></div>
+        <div class="child">div filha
+            <div class="pos"></div>
+        </div>
+    </div>
+     <div class="parent">
+        div pai 
+        <div class="pos"></div>
+        <div class="child">div filha
+            <div class="pos"></div>
+        </div>
+    </div>
+    <div class="parent">
+        div pai 
+        <div class="pos"></div>
+        <div class="child">div filha
+            <div class="pos"></div>
+        </div>
+    </div>
+    <div class="parent">
+        div pai 
+        <div class="pos"></div>
+        <div class="child">div filha
+            <div class="pos"></div>
+        </div>
+    </div>
+
+    <div id="size">
+
+    </div>
+
+    <button id="btnVoltar" class="btn btn-primary">Vai para o topo</button>
+
+   <script
+	src="https://code.jquery.com/jquery-3.3.1.js"
+	integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+	crossorigin="anonymous"></script>
+
+    <script>
+        
+        $(function(){
+            $('.parent, .child').on('click', function(e){
+                e.stopPropagation();
+                let coords = $(this).offset()
+                $(this).children('.pos').html( `offset(): left: ${coords.left} | top: ${coords.top} <br>` )
+                
+                let coodsPos = $(this).position()
+                $(this).children('.pos').append( `position():left: ${coodsPos.left} | top: ${coodsPos.top}<br>` )
+            })
+            
+            $('.parent:eq(1)').css('position', 'relative')
+            
+            $('.parent:eq(2)').css({
+                position: 'fixed',
+                top: '0',
+                left: '330px'
+            })
+            
+            $('#size').on('click', function(e){
+                let w = $(this).width();
+                let h = $(this).height();
+                $(e.target).html(` width: ${w} | height: ${h}<br> `)
+                
+                let w2 = $(this).innerWidth();
+                let h2 = $(this).innerHeight();
+                $(e.target).append(` innerWidth: ${w2} | innerHeight: ${h2}<br> `)
+                
+                let w3 = $(this).outerWidth();
+                let h3 = $(this).outerHeight();
+                $(e.target).append(` outerWidth: ${w3} | outerHeight: ${h3}<br> `)
+                
+                let w4 = $(this).outerWidth(true);
+                let h4 = $(this).outerHeight(true);
+                $(e.target).append(` outerWidth(true): ${w4} | outerHeight(true): ${h4}<br> `)
+            })
+            
+            $('.parent:eq(3)').offset({top: 50, left: 150})
+            
+            var documento = $(document).height();
+            var alturaJanela = $(window).height();
+            var maxScroll = documento - alturaJanela;
+            
+            $(document).on('scroll', function(){
+                
+                documento = $(document).height();
+                alturaJanela = $(window).height();
+                maxScroll = documento - alturaJanela;
+                
+                var meuScroll = $(document).scrollTop();
+                
+                if(maxScroll - meuScroll <= 20){
+                    $('#btnVoltar').fadeIn(500)
+                } else {
+                    $('#btnVoltar').fadeOut(500)
+                }
+            })
+            
+            $('#btnVoltar').on('click', function(){
+                //$(document).scrollTop(0)
+                $('html, body').animate({scrollTop: 0}, 1000)
+            })
+            
+            $(window).on('resize', function(){
+                $(document).trigger('scroll')
+            })
+            
+        })
+    	
+    </script>
+   
+    
+</body>
+</html>
