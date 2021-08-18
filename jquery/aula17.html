@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
+    <style>
+
+    #animar{
+        width: 350px;
+        height: 250px;
+        background: #ddd;
+        padding: 15px;
+        box-sizing: content-box;
+    }
+    
+    
+    </style>
+
+    
+</head>
+<body>
+    
+
+<div class="container">
+    <div id="animar"></div>
+    
+
+    <button class="btn btn-primary mt-5">mostrar</button>
+    <button class="btn btn-primary mt-5">esconder</button>
+    <button class="btn btn-primary mt-5">toggle</button>
+    <hr>
+    <button class="btn btn-primary mt-5">mostrar</button>
+    <button class="btn btn-primary mt-5">esconder</button>
+    <button class="btn btn-primary mt-5">toggle</button>
+    <button class="btn btn-primary mt-5">fadeTo</button>
+    <button class="btn btn-primary mt-5">delay</button>
+
+    <div id="output" class="mt-5"></div>
+</div>
+   <script
+	src="https://code.jquery.com/jquery-3.3.1.js"
+	integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+	crossorigin="anonymous"></script>
+
+    <script>
+    	
+        const animar = $('#animar')
+        const btns = $('.btn')
+        const output = $('#output')
+        
+        setInterval( () => {
+            if(animar.is(':hidden')){
+                output.css('color', 'red').text('oculto')
+            } else if( animar.is(':visible') ){
+                 output.css('color', 'green').text('visivel')
+
+            }
+        }, 500)
+        
+        btns.eq(0).on('click', function(){
+            animar.text('animando').slideDown('slow', function(){
+                $(this).text('')
+            })
+        })
+        
+        btns.eq(1).on('click', function(){
+            animar.text('animando').slideUp(5000, function(){
+                $(this).text('')
+            })
+        })
+        
+        btns.eq(2).on('click', function(){
+            animar.text('animando').slideToggle(2000, function(){
+                $(this).text('')
+            })
+        })
+        
+        
+        
+        /* fade */
+        
+        btns.eq(3).on('click', function(){
+            animar.text('animando').removeAttr('style').css('display', 'none').fadeIn('slow', function(){
+                $(this).text('')
+            })
+        })
+        
+        btns.eq(4).on('click', function(){
+            animar.text('animando').fadeOut('slow', function(){
+                $(this).text('')
+            })
+        })
+        
+        btns.eq(5).on('click', function(){
+            animar.text('animando').fadeToggle(2000, function(){
+                $(this).text('')
+            })
+        })
+        
+        btns.eq(6).on('click', function(){
+            animar.text('animando').fadeTo(2000, '0', function(){
+                $(this).text('')
+            })
+        })
+        
+        btns.eq(7).on('click', function(){
+            animar.fadeTo('slow', 0).slideUp('slow').delay(2000).slideDown('slow').fadeTo('slow', 1)
+        })
+        
+        
+            
+    </script>
+   
+    
+</body>
+</html>

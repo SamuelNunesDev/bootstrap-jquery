@@ -70,6 +70,12 @@ main {
 .indent {
     text-indent: 1.5rem;
 }
+.active {
+    text-decoration: underline !important;
+}
+#entre-em-contato {
+    min-height: 80vh;
+}
 
 @media screen and (min-width: 992px) {
     

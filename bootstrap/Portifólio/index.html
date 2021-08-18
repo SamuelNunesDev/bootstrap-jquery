@@ -4,10 +4,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../../node_modules/bootstrap/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="style.css">
-    <script src="../node_modules/jquery/dist/jquery.slim.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
     <title>Portifólio</title>
 </head>
 <body>
@@ -16,15 +14,15 @@
             <span class="d-none d-lg-block">
                 <img src="images/WhatsApp Image 2021-05-21 at 09.34.17.jpeg" class="rounded-circle img-profile" alt="Samuel">
             </span>
-            <a class="navbar-brand" href="#">Samuel Nunes de Souza</a>
+            <a class="navbar-brand" href="#sideNav">Samuel Nunes de Souza</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
               <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
               <ul class="navbar-nav navbar-right">
-                <li class="nav-item my-2"><a class="nav-item nav-link" href="#">Inicio</a></li>
-                <li class="nav-item my-2"><a class="nav-item nav-link" href="#trabalhos-recentes">Trabalhos Recentes</a></li>
-                <li class="nav-item my-2"><a class="nav-item nav-link" href="#entre-em-contato">Entre em Contato</a></li>
+                <li class="nav-item my-2"><a class="nav-item nav-link active" id="btnInicio" href="#sideNav">Inicio</a></li>
+                <li class="nav-item my-2"><a class="nav-item nav-link" id="trabalhos" href="#trabalhos-recentes">Trabalhos Recentes</a></li>
+                <li class="nav-item my-2"><a class="nav-item nav-link" id="contato" href="#entre-em-contato">Entre em Contato</a></li>
               </ul>
             </div>
           </nav>
@@ -150,5 +148,33 @@
             <li class="nav-item">Design: <a href="">HTML5Up</a></li>
         </ul>
     </footer>
+    <script src="../../node_modules/jquery/dist/jquery.min.js"></script>
+    <script src="../../node_modules/bootstrap/dist/js/bootstrap.bundle.js"></script>
+    <script>
+        $(function() {
+
+            let trabalho = $('#trabalhos-recentes').position().top - 130
+            let contato = $('#entre-em-contato').position().top - 130
+            $('#btnInicio, #trabalhos, #contato').on('click', function(e) {
+                e.preventDefault()
+                $('html').animate({scrollTop: $(`#${this.href.split('#')[1]}`).position().top-70}, 1000)
+            })
+            $(window).on('scroll', function(e) {
+                scroll = $(this).scrollTop()
+                if(scroll < trabalho) {
+                    $('#btnInicio, #trabalhos, #contato').removeClass('active')
+                    $('#btnInicio').addClass('active') 
+                }
+                if(scroll >= trabalho) {
+                    $('#btnInicio, #trabalhos, #contato').removeClass('active')
+                    $('#trabalhos').addClass('active')
+                }
+                if(scroll >= contato) {
+                    $('#btnInicio, #trabalhos, #contato').removeClass('active')
+                    $('#contato').addClass('active')
+                }
+            })
+        })
+    </script>
 </body>
 </html>
