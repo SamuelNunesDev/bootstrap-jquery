@@ -1,0 +1,20 @@
+#box-slide {
+    width: 745px;
+    height: 435px;
+}
+img.atual {
+    width: 735px;
+    height: 427px;
+}
+img:not(.atual) {
+    width: 150px;
+    height: 100px;
+    opacity: 0.5;
+}
+img:not(.atual):hover {
+    transition-duration: 750ms;
+    opacity: 1;
+}
+.active {
+    opacity: 1 !important;
+}

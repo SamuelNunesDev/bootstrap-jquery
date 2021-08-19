@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="style.css">
+    <title>Galeria de Imagens</title>
+</head>
+<body class="bg-secondary">
+    <section class="container text-center">
+            <div class="row justify-content-center">
+                <article class="mt-5 bg-light" id="box-slide">
+                    <img class="atual mt-1" src="images/01.jpg" alt="imagem da galeria">
+                </article>
+            </div>
+        <div class="row justify-content-center">
+            <article class="mt-4">
+                <img src="images/01.jpg" class="active mx-2" alt="primeira imagem da galeria">
+                <img src="images/02.jpg" class="mx-2" alt="segunda imagem da galeria">
+                <img src="images/03.jpg" class="mx-2" alt="terceira imagem da galeria">
+                <img src="images/04.jpg" class="mx-2" alt="quarta imagem da galeria">
+                <img src="images/05.jpg" class="mx-2" alt="quinta imagem da galeria">
+                <img src="images/06.jpg" class="mx-2" alt="sexta imagem da galeria">
+            </article>
+        </div>
+    </section>
+    <script src="../../node_modules/jquery/dist/jquery.min.js"></script>
+    <script src="../../node_modules/bootstrap/dist/js/bootstrap.bundle.js"></script>
+    <script>
+        $(function() {
+            let image = $('img:not(.atual)')
+            let img_principal = $('.atual')
+            image.on('click', function() {
+                let img_clicada = $(this)
+                image.removeClass('active')
+                img_clicada.addClass('active')
+                img_principal.fadeToggle(500, function() {
+                    img_principal.attr('src', img_clicada.attr('src'))
+                    img_principal.fadeToggle(500)
+                })
+            })
+        })
+    </script>
+</body>
+</html>
