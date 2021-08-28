@@ -1,0 +1,57 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+body {
+    font-family: Roboto, sans-serif;
+}
+.menu-principal {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 5;
+}
+.bannerPrin {
+    background-image: url(images/home-bg4.jpg);
+    background-size: cover;
+    min-height: 100vh;
+}
+.bgcolor {
+    background-color: rgb(15, 15, 15);
+}
+.infos {
+    margin-top: -60px;
+    color:#bbb;
+}
+.img {
+    transition-duration: 600ms;
+    width: 200px;
+    height: 200px;
+    opacity: .5;
+}
+a:hover > .img {
+    transition-duration: 600ms;
+    opacity: 1;
+}
+a {
+    text-decoration: none;
+    color: rgb(92, 92, 92);
+}
+span {
+    transition-duration: 600ms;
+    opacity: .5;
+}
+a:hover {
+    text-decoration: inherit;
+    color: inherit;
+}
+a:hover > span {
+    transform: translateY(-50%);
+    transition-duration: 600ms;
+    opacity: 1;
+}
+.saiba-mais{
+    position: absolute;
+    top: 50%;
+    left: 30%;
+    opacity: 0;
+}
