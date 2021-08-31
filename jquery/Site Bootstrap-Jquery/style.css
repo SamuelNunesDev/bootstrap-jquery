@@ -55,3 +55,8 @@ a:hover > span {
     left: 30%;
     opacity: 0;
 }
+#section-more {
+    height: 500px;
+    background-image: url(./images/home-bg3.jpg);
+    background-size: cover;
+}
