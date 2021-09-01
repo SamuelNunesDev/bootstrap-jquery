@@ -7,6 +7,10 @@
     <link rel="stylesheet" href="../../node_modules/bootstrap/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="../../node_modules/animate.css/animate.min.css">
     <link rel="stylesheet" href="../../node_modules/bootstrap-icons/font/bootstrap-icons.css">
+    <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+  />
     <link rel="stylesheet" href="style.css">
     <title>Treinamento HO</title>
 </head>
@@ -48,17 +52,17 @@
     </header>
     <section>
         <div class="jumbotron jumbotron-fluid text-light bg-dark text-center bannerPrin mb-0">
-            <div class="container pt-5">
+            <div class="container pt-5 element-animate">
               <h1 class="display-4 mt-5 pt-5">Treinamentos em Home Office</h1>
               <p class="lead">Prepare-se para o futuro.</p>
             </div>
           </div>
     </section>
-    <section class="infos">
+    <section class="infos element-animate">
         <div class="row">
             <div class="col-3 bgcolor py-3 px-5">
                 <div class="media">
-                    <div class="media-body">
+                    <div class="media-body p-4">
                       <h5>
                         <i class="bi bi-telephone-fill"></i> (38) 94002-8922
                       </h5>
@@ -68,7 +72,7 @@
             </div>
             <div class="col-3 bgcolor py-3">
                 <div class="media">
-                    <div class="media-body">
+                    <div class="media-body p-4">
                       <h5>
                         <i class="bi bi-laptop"></i> Acessibilidade
                       </h5>
@@ -78,7 +82,7 @@
             </div>
             <div class="col-3 bgcolor py-3">
                 <div class="media">
-                    <div class="media-body">
+                    <div class="media-body p-4">
                       <h5 class="">
                         <i class="bi bi-award"></i> Evolua!
                       </h5>
@@ -120,7 +124,7 @@
         </div>
       </article>
     </section>
-    <section class="container">
+    <section class="container mb-5">
       <h3 class="text-center text-dark">Diferenciais</h3>
       <h6 class="text-center mb-5 text-dark">Porque deveria contar conosco?</h6>
       <article class="row justify-content-center">
@@ -180,7 +184,7 @@
     </section>
     <section id="section-more">
       <article class="container text-light">
-        <div class="row justify-content-center pt-5">
+        <div class="row justify-content-center pt-5 element-animate">
           <h2 class="pt-5 mt-3">Quer Mais?</h2>
           <h3>Participe ativamente para o crescimento do projeto e receba conteúdos exclusivos!</h3>
           <p class="h5 col-12 text-center mt-4">Digite seu e-mail:</p>
@@ -191,7 +195,24 @@
         </div>
       </article>
     </section>
+    <footer class="mt-5">
+      <div class="row justify-content-center text-dark">
+        <p>Copyright &copy;
+          <script>
+            document.write(new Date().getFullYear())
+          </script>
+           Todos os direitos reservados
+        </p>
+      </div>
+      <div class="row justify-content-center text-dark">
+        <p>Projeto criado por 
+          <a href="#" id="link-footer">Samuel Nunes</a>
+        </p>
+      </div>
+    </footer>
     <script src="../../node_modules/jquery/dist/jquery.min.js"></script>
     <script src="../../node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../../node_modules/waypoints/lib/jquery.waypoints.min.js"></script>
+    <script src="main.js"></script>
 </body>
 </html>

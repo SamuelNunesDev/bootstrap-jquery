@@ -60,3 +60,13 @@ a:hover > span {
     background-image: url(./images/home-bg3.jpg);
     background-size: cover;
 }
+#link-footer {
+    color: rgba(243, 50, 50, 0.808);
+}
+#link-footer:hover {
+    text-decoration: underline;
+}
+.element-animate {
+    opacity: 0;
+    visibility: hidden;
+}
