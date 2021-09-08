@@ -11,7 +11,7 @@ body {
     z-index: 5;
 }
 .bannerPrin {
-    background-image: url(images/home-bg4.jpg);
+    background-image: url(../images/home-bg4.jpg);
     background-size: cover;
     min-height: 100vh;
 }
@@ -56,8 +56,8 @@ a:hover > span {
     opacity: 0;
 }
 #section-more {
-    height: 500px;
-    background-image: url(./images/home-bg3.jpg);
+    height: 470px;
+    background-image: url(../images/home-bg3.jpg);
     background-size: cover;
 }
 #link-footer {
