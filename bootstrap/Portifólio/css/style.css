@@ -16,7 +16,7 @@ body {
     position: relative;
 }
 .card a::before {
-    background-image: url(images/overlay.png);
+    background-image: url(../images/overlay.png);
     border-radius: 4px;
     content: '';
     display: block;
@@ -90,7 +90,7 @@ main {
         flex-direction: column;
         width: 33.33%;
         height: 100vh;
-        background-image: url(images/overlay.png), url(images/bg.jpg);
+        background-image: url(../images/overlay.png), url(../images/bg.jpg);
         background-attachment: scroll;
         background-position: top left;
         background-repeat: repeat, no-repeat;
